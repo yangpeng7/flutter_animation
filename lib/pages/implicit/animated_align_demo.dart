@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import 'component/curve_picker.dart';
+import '../../component/curve_picker.dart';
 
 class AnimatedAlignDemo extends StatefulWidget {
   @override
@@ -41,7 +41,7 @@ class _AnimatedAlignDemoState extends State<AnimatedAlignDemo> {
           children: [
             AnimatedAlign(
               alignment: _alignment,
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               curve: _curve,
               child: InkWell(
                 onTap: () {
@@ -53,7 +53,6 @@ class _AnimatedAlignDemoState extends State<AnimatedAlignDemo> {
                 },
                 child: Container(
                   color: Colors.blue,
-                  margin: const EdgeInsets.all(20),
                   width: 200,
                   height: 200,
                 ),

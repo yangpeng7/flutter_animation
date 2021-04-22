@@ -1,9 +1,19 @@
-import 'package:animation/tween_animation_builder_demo.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'animated_align_demo.dart';
-import 'animated_container_demo.dart';
-import 'animated_default_text_style_demo.dart';
+import 'pages/implicit/animated_align_demo.dart';
+import 'pages/implicit/animated_container_demo.dart';
+import 'pages/implicit/animated_cross_fade_demo.dart';
+import 'pages/implicit/animated_default_text_style_demo.dart';
+import 'pages/implicit/animated_opacity_demo.dart';
+import 'pages/implicit/animated_padding_demo.dart';
+import 'pages/implicit/animated_physical_model_demo.dart';
+import 'pages/implicit/animated_positioned_demo.dart';
+import 'pages/implicit/animated_positioned_directional_demo.dart';
+import 'pages/implicit/animated_size_demo.dart';
+import 'pages/implicit/animated_switcher_demo.dart';
+import 'pages/implicit/animated_theme_demo.dart';
+import 'pages/implicit/tween_animation_builder_demo.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,12 +22,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter 动画集合'),
     );
   }
 }
@@ -53,49 +63,57 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            FlatButton(
-              child: Text('TweenAnimationBuilderDemo'),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return TweenAnimationBuilderDemo();
-                  },
-                ),
-              ),
+            TextButton(
+              child: Text('TweenAnimationBuilder'),
+              onPressed: () => Get.to(TweenAnimationBuilderDemo()),
             ),
-            FlatButton(
+            TextButton(
               child: Text('AnimatedAlign'),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return AnimatedAlignDemo();
-                  },
-                ),
-              ),
+              onPressed: () => Get.to(AnimatedAlignDemo()),
             ),
-            FlatButton(
+            TextButton(
               child: Text('AnimatedContainer'),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return AnimatedContainerDemo();
-                  },
-                ),
-              ),
+              onPressed: () => Get.to(AnimatedContainerDemo()),
             ),
-            FlatButton(
+            TextButton(
               child: Text('AnimatedDefaultTextStyle'),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return AnimatedDefaultTextStyleDemo();
-                  },
-                ),
-              ),
+              onPressed: () => Get.to(AnimatedDefaultTextStyleDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedOpacity'),
+              onPressed: () => Get.to(AnimatedOpacityDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedPadding'),
+              onPressed: () => Get.to(AnimatedPaddingDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedPhysicalModel'),
+              onPressed: () => Get.to(AnimatedPhysicalModelDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedPositioned'),
+              onPressed: () => Get.to(AnimatedPositionedDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedPositionedDirectional'),
+              onPressed: () => Get.to(AnimatedPositionedDirectionalDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedTheme'),
+              onPressed: () => Get.to(AnimatedThemeDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedCrossFade'),
+              onPressed: () => Get.to(AnimatedCrossFadeDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedSize'),
+              onPressed: () => Get.to(AnimatedSizeDemo()),
+            ),
+            TextButton(
+              child: Text('AnimatedSwitcher'),
+              onPressed: () => Get.to(AnimatedSwitcherDemo()),
             ),
           ],
         ),

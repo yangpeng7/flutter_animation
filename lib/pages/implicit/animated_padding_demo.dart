@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import 'component/curve_picker.dart';
+import '../../component/curve_picker.dart';
 
-class AnimatedDefaultTextStyleDemo extends StatefulWidget {
+class AnimatedPaddingDemo extends StatefulWidget {
   @override
-  _AnimatedDefaultTextStyleDemoState createState() =>
-      _AnimatedDefaultTextStyleDemoState();
+  _AnimatedPaddingDemoState createState() => _AnimatedPaddingDemoState();
 }
 
-class _AnimatedDefaultTextStyleDemoState
-    extends State<AnimatedDefaultTextStyleDemo> {
-  bool selected = false;
+class _AnimatedPaddingDemoState extends State<AnimatedPaddingDemo> {
+  double padding = 20;
   Curve _curve = Curves.linear;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AnimatedDefaultTextStyle"),
+        title: Text("AnimatedPadding"),
         actions: [
           IconButton(
               icon: Icon(Icons.settings),
@@ -44,52 +42,43 @@ class _AnimatedDefaultTextStyleDemoState
             InkWell(
               onTap: () {
                 setState(() {
-                  selected = !selected;
+                  padding = padding == 20 ? 100 : 20;
                 });
               },
-              child: AnimatedDefaultTextStyle(
+              child: AnimatedPadding(
+                padding: EdgeInsets.all(padding),
+                duration: const Duration(seconds: 1),
                 curve: _curve,
-                duration: Duration(seconds: 1),
-                style: selected
-                    ? TextStyle(
-                        fontSize: 50,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold)
-                    : TextStyle(
-                        fontSize: 30,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w100),
-                child: Text("Hello World"),
+                child: Container(
+                  color: padding == 20.0 ? Colors.redAccent : Colors.blue,
+                  height: 200,
+                  width: 200,
+                ),
               ),
             ),
             Markdown(
               shrinkWrap: true,
               selectable: true,
               data: ('''
-    bool selected = false;
+    double padding = 20;
     
     InkWell(
       onTap: () {
         setState(() {
-          selected = !selected;
+          padding = padding == 20 ? 100 : 20;
         });
       },
-      child: AnimatedDefaultTextStyle(
-        curve: _curve,
+      child: AnimatedPadding(
+        padding: EdgeInsets.all(padding),
         duration: Duration(seconds: 1),
-        style: selected
-            ? TextStyle(
-                fontSize: 50,
-                color: Colors.blue,
-                fontWeight: FontWeight.bold)
-            : TextStyle(
-                fontSize: 30,
-                color: Colors.black,
-                fontWeight: FontWeight.w100),
-        child: Text("Hello World"),
+        curve: _curve,
+        child: Container(
+          color: padding == 20.0 ? Colors.redAccent : Colors.blue,
+          height: 200,
+          width: 200,
+        ),
       ),
-    ),
-
+    ),    
               '''),
             )
           ],

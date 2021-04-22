@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import 'component/curve_picker.dart';
+import '../../component/curve_picker.dart';
 
 class TweenAnimationBuilderDemo extends StatefulWidget {
   @override
@@ -43,7 +43,7 @@ class _TweenAnimationBuilderDemoState extends State<TweenAnimationBuilderDemo> {
             /// 用于Container
             TweenAnimationBuilder(
               tween: Tween<double>(begin: 0, end: targetValue),
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               curve: _curve,
               builder: (BuildContext context, double size, Widget child) {
                 return InkWell(

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import 'component/curve_picker.dart';
+import '../../component/curve_picker.dart';
 
-class AnimatedContainerDemo extends StatefulWidget {
+class AnimatedPhysicalModelDemo extends StatefulWidget {
   @override
-  _AnimatedContainerDemoState createState() => _AnimatedContainerDemoState();
+  _AnimatedPhysicalModelDemoState createState() =>
+      _AnimatedPhysicalModelDemoState();
 }
 
-class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
+class _AnimatedPhysicalModelDemoState extends State<AnimatedPhysicalModelDemo> {
   bool selected = false;
   Curve _curve = Curves.linear;
 
@@ -16,7 +17,7 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AnimatedContainer"),
+        title: Text("AnimatedPhysicalModel"),
         actions: [
           IconButton(
               icon: Icon(Icons.settings),
@@ -45,13 +46,20 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
                   selected = !selected;
                 });
               },
-              child: AnimatedContainer(
-                color: Colors.blue,
+              child: AnimatedPhysicalModel(
                 curve: _curve,
-                margin: const EdgeInsets.all(20),
-                duration: Duration(seconds: 1),
-                width: selected ? 200.0 : 100.0,
-                height: selected ? 100.0 : 200.0,
+                borderRadius: selected
+                    ? BorderRadius.circular(20)
+                    : BorderRadius.circular(40),
+                color: Colors.blue,
+                shape: BoxShape.rectangle,
+                shadowColor: Colors.black,
+                duration: const Duration(seconds: 1),
+                elevation: selected ? 20 : 5,
+                child: Container(
+                  height: 200,
+                  width: 200,
+                ),
               ),
             ),
             Markdown(
@@ -66,13 +74,20 @@ class _AnimatedContainerDemoState extends State<AnimatedContainerDemo> {
           selected = !selected;
         });
       },
-      child: AnimatedContainer(
-        color: Colors.blue,
+      child: AnimatedPhysicalModel(
         curve: _curve,
-        margin: const EdgeInsets.all(20),
+        borderRadius: selected
+            ? BorderRadius.circular(20)
+            : BorderRadius.circular(40),
+        color: Colors.blue,
+        shape: BoxShape.rectangle,
+        shadowColor: Colors.black,
         duration: Duration(seconds: 1),
-        width: selected ? 200.0 : 100.0,
-        height: selected ? 100.0 : 200.0,
+        elevation: selected ? 20 : 5,
+        child: Container(
+          height: 200,
+          width: 200,
+        ),
       ),
     ),
               '''),
