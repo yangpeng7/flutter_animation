@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'pages/explicit/align_transition_demo.dart';
+import 'pages/explicit/positioned_transition_demo.dart';
+import 'pages/explicit/scale_transition_demo.dart';
+import 'pages/explicit/size_transition_demo.dart';
+import 'pages/explicit/slide_transition_demo.dart';
 import 'pages/implicit/animated_align_demo.dart';
 import 'pages/implicit/animated_container_demo.dart';
 import 'pages/implicit/animated_cross_fade_demo.dart';
@@ -15,6 +20,7 @@ import 'pages/implicit/animated_size_demo.dart';
 import 'pages/implicit/animated_switcher_demo.dart';
 import 'pages/implicit/animated_theme_demo.dart';
 import 'pages/implicit/tween_animation_builder_demo.dart';
+import 'pages/lottie/lottie_demo.dart';
 
 void main() {
   runApp(MyApp());
@@ -204,6 +210,54 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               child: Text('AnimatedSwitcher'),
               onPressed: () => Get.to(AnimatedSwitcherDemo()),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              width: double.infinity,
+              color: Theme.of(context).primaryColor,
+              child: Text(
+                '显式动画',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            TextButton(
+              child: Text('PositionedTransition'),
+              onPressed: () => Get.to(PositionedTransitionDemo()),
+            ),
+            TextButton(
+              child: Text('AlignTransition'),
+              onPressed: () => Get.to(AlignTransitionDemo()),
+            ),
+            TextButton(
+              child: Text('SizeTransition'),
+              onPressed: () => Get.to(SizeTransitionDemo()),
+            ),
+            TextButton(
+              child: Text('ScaleTransition'),
+              onPressed: () => Get.to(ScaleTransitionDemo()),
+            ),
+            TextButton(
+              child: Text('SlideTransition'),
+              onPressed: () => Get.to(SlideTransitionDemo()),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              width: double.infinity,
+              color: Theme.of(context).primaryColor,
+              child: Text(
+                'Lottie',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            TextButton(
+              child: Text('Lottie'),
+              onPressed: () => Get.to(LottieDemo()),
             ),
           ],
         ),
