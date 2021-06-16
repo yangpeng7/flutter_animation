@@ -1,3 +1,5 @@
+import 'package:animation/pages/custom_painter/custom_painter_demo.dart';
+import 'package:animation/pages/explicit/relative_positioned_transition_demo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -228,6 +230,10 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () => Get.to(PositionedTransitionDemo()),
             ),
             TextButton(
+              child: Text('RelativePositionedTransition'),
+              onPressed: () => Get.to(RelativePositionedTransitionDemo()),
+            ),
+            TextButton(
               child: Text('AlignTransition'),
               onPressed: () => Get.to(AlignTransitionDemo()),
             ),
@@ -242,6 +248,22 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               child: Text('SlideTransition'),
               onPressed: () => Get.to(SlideTransitionDemo()),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              width: double.infinity,
+              color: Theme.of(context).primaryColor,
+              child: Text(
+                'CustomPainter',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            TextButton(
+              child: Text('CustomPainter'),
+              onPressed: () => Get.to(CustomPainterDemo()),
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
